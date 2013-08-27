@@ -54,5 +54,17 @@ function placeMovie(){
 				$('#buttons').akordeon();
             	$('#button-less').akordeon({ buttons: false, toggle: true, itemsOrder: [2, 0, 1] });
 
+				$(".menu a").hover(function() {
+						$(this).next("em").animate({opacity: "show", top: "800"}, "slow"); 
+					}, function() {
+						$(this).next("em").animate({opacity: "hide", top: "-85"}, "fast");
+					});
 
-				});				
+
+				});	
+
+
+	function clear(){
+
+		localStorage.clear();
+	}			

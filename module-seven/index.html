@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
 	<title>Movie Search Engine</title>
+	<link href="images/jf.ico" rel="shortcut icon" type="image/x-icon">
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<script src="js/jquery.js"></script>
-	<link href="css/js-image-slider.css" rel="stylesheet" type="text/css" />
 
 
     <script src="js/js-image-sliders.js" type="text/javascript"></script>
@@ -13,7 +13,7 @@
 	<script src="js/jquery.jcarousel.js" type="text/javascript"></script>
 	<script src="js/functions.js" type="text/javascript"></script>
 	
-	<link href="css/jquery.akordeon.css" rel="stylesheet" type="text/css" />
+
     <script src="js/jquery.akordeon.js" type="text/javascript"></script>
 
 	<script src="js/bootstrap.min.js"></script>
@@ -22,30 +22,16 @@
 	<script src="js/jfunction.js"></script>
 
 	<script type="text/javascript" src = "js/slide.js"> </script>
-
-	<script type="text/javascript">
-	$(document).ready(function(){
-
-	$(".menu a").hover(function() {
-		$(this).next("em").animate({opacity: "show", top: "800"}, "fast"); /*yung top: "14" yun ung position ng hover na lalabas. pag tinaasan
-																			mo pa mas bababa pa sya, para sa adjustment, depende sa laki ng image,
-																			or weight and height po*/
-	}, function() {
-		$(this).next("em").animate({opacity: "hide", top: "-85"}, "fast");
-	});
-});
-
-	</script>
 </head>
 
-<body>
+<body onload =  "clear();">
 
 
 	<header>
 		<div id="sliderFrame">
 	        <div id="sliders">
 	            <img src="images/header/rotten.png" alt="Movie Search Engine (by Rottentomatoes Server)" />
-	            <img src="images/header/film.png" alt="Read... Watch... Review..." />
+	            <img src="images/header/curtain.png" alt="Read... Watch... Review..." />
 	            <img src="images/header/quote.png" alt="Movie Quote"/>
 	            <img src="images/header/despics.png" alt="by Team DESPICABLE US"/>
 	        </div>
@@ -115,7 +101,30 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div></br>
+
+
+
+		<div id = "main">
+			<div>
+				<a href="http://www.youtube.com/watch?v=_dDiMp-gTHA" target = "blank" title = "Watch Closed Circuit Movie Trailer"><img src="images/slide/closed.png" width = "180" height = "220"></a>
+			</div>
+			<div>
+				<a href="http://www.youtube.com/watch?v=KOxFPv-meWM" target = "blank" title = "Watch The Frozen Ground Movie Trailer"><img src="images/slide/frozenground.jpg" width = "180" height = "220"></a>
+			</div>
+			<div>
+				<a href="http://www.youtube.com/watch?v=EAzGXqJSDJ8" target = "blank" title = "Watch Catching Fire Movie Trailer"><img src="images/slide/hungergames.jpg" width = "180" height = "220"></a>
+			</div>
+			<div>
+				<a href="http://www.youtube.com/watch?v=fBbi4NeebAk" target = "blank" title = "Watch Insidious Chapter 2 Movie Trailer"><img src="images/slide/insidious.jpg" width = "180" height = "220"></a>
+			</div>
+			<div>
+				<a href="http://www.youtube.com/watch?v=91IvbT-I4GM" target = "blank" title = "Watch Planes Movie Trailer"><img src="images/slide/planes.jpg" width = "180" height = "220"></a>
+			</div>
+			<div>
+				<a href="http://www.youtube.com/watch?v=PqityROkiPs" target = "blank" title = "Watch The Life Guard Movie Trailer"><img src="images/slide/thelifeguard.jpg" width = "180" height = "220"></a>
+			</div>
+		</div>
 
 		</nav>
 
@@ -131,7 +140,7 @@
 											<p class="description">A teenager finds herself transported to a deep forest setting where a battle between the forces of good and the forces of evil is taking place. She bands together with a rag-tag group characters in order to save their world -- and ours</p>
 					          			</div>
 										<div class="image">
-											<img alt="template image" src="images/epic.jpg" />
+											<img alt="template image" src="images/pic.jpg" />
 										</div> 
 									</div>
 								</li>
@@ -206,26 +215,6 @@
 
 		<aside>
 
-	<div id = "main">
-		<div>
-			<a href="http://www.youtube.com/watch?v=_dDiMp-gTHA" target = "blank" title = "Watch Closed Circuit Movie Trailer"><img src="images/slide/closedcircuit.jpg" width = "180" height = "220"></a>
-		</div>
-		<div>
-			<a href="http://www.youtube.com/watch?v=KOxFPv-meWM" target = "blank" title = "Watch The Frozen Ground Movie Trailer"><img src="images/slide/frozenground.jpg" width = "180" height = "220"></a>
-		</div>
-		<div>
-			<a href="http://www.youtube.com/watch?v=EAzGXqJSDJ8" target = "blank" title = "Watch Catching Fire Movie Trailer"><img src="images/slide/hungergames.jpg" width = "180" height = "220"></a>
-		</div>
-		<div>
-			<a href="http://www.youtube.com/watch?v=fBbi4NeebAk" target = "blank" title = "Watch Insidious Chapter 2 Movie Trailer"><img src="images/slide/insidious.jpg" width = "180" height = "220"></a>
-		</div>
-		<div>
-			<a href="http://www.youtube.com/watch?v=91IvbT-I4GM" target = "blank" title = "Watch Planes Movie Trailer"><img src="images/slide/planes.jpg" width = "180" height = "220"></a>
-		</div>
-		<div>
-			<a href="http://www.youtube.com/watch?v=PqityROkiPs" target = "blank" title = "Watch The Life Guard Movie Trailer"><img src="images/slide/thelifeguard.jpg" width = "180" height = "220"></a>
-		</div>
-	</div></br>
 
 	<div id = "mains">
 		<div>
