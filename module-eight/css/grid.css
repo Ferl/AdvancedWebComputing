@@ -1,0 +1,42 @@
+
+.row {
+  margin-bottom: 20px;
+  border-bottom: 10px;
+  padding-left: 2px;
+  margin-right: 0px;
+}
+.row .row {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+}
+.row .row .row {
+  margin-right: 0px;
+ background:#F7ECA3;
+
+ -webkit-box-shadow:0px 1px 3px rgba(0,0,0,.25);
+ -moz-box-shadow:0px 1px 3px rgba(0,0,0,.25);
+ box-shadow:0px 1px 3px rgba(0,0,0,.25);
+
+  border-bottom:1px solid #bababa;
+
+  -webkit-box-shadow:
+    inset 0px -1px 0px #fff,
+    0px 1px 3px rgba(0,0,0,.08);
+  -moz-box-shadow:
+    inset 0px -1px 0px #fff,
+    0px 1px 3px rgba(0,0,0,.08);
+  box-shadow:
+    inset 0px -1px 0px #fff,
+    0px 1px 3px rgba(0,0,0,.08);
+
+  -webkit-border-radius:4px 4px 0px 0px;
+  -moz-border-radius:4px 4px 0px 0px;
+  border-radius:4px 4px 0px 0px;
+}
+
+[class*="col-"] {
+  margin-right: 0px;
+}

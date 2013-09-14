@@ -1,59 +1,237 @@
 <!DOCTYPE HTML>
-
 <html>
 <head>
-	<title>HandleBar Template</title>
-	<link rel="shortcut icon" type="image/icon" href="image/ico/jf.icon">
+	<title>Despicable Movies</title>
+	<meta charset="utf-8">
+	<meta name="author" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/icon" href="images/jf.icon">
 	<link rel="stylesheet" type="text/css" href="css/handlestyle.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
-</head>
+	<link rel="stylesheet" type="text/css" href="css/offcanvas.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/glyphicons.css">
+	<link rel="stylesheet" type="text/css" href="css/grid.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap-theme.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 
-<div>
+	
+</head>	
+	<body>	
+		<div class="navbar navbar-fixed-top" style = "background-color: red;">
+		  <div class="container" style = "background-color: violet;">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand"  href="index.html">Despicable Movies</a>
+		    </div>
+		    <div class="navbar-collapse collapse">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="index.html"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+		        <li><a href="#boxoffice" class = "showboxOffice">In the BOX</a></li>
+		        <li><a href="#theaters" class = "showtheaters">In Theaters</a></li>
+		        <li><a href="#openings" class = "showopenings">Opening</a></li>
+		        <li><a href="#upcoming" class = "showupcoming">Upcoming</a></li>
+		      </ul>
+		    </div><!--/.nav-collapse -->
+		  </div>
+		</div>
 
-</div>
-	<center>
-				<header>
-					<div class = "content">
-						header
-					</div>
-				</header>
-			<body>	
-				<div id = "container">
-					<nav>
-						<div class = "content">
-							nav
-						</div>
-					</nav>
+		<div id = "main">
+			<div class = "container">
+				<div id = "article_aside">
+					<div id = "search_form">
+						<div class = "row">
+							<div class = "col-md-12">
+								<div class = "row">
+									<div class = "col-md-4 col-sm-6 col-lg-4 col-xs-6">
+										<form onSubmit = "return false;">
+									    	<input type="text" placeholder="Movie Title Here" class="form-control" id = "search_movie_field">
+									</div>
+									<div class = "col-md-4 col-sm-6 col-lg-4 col-xs-6">
+										  	<button type="button" class="btn btn-primary" id = "search_movie_button" data-loading-text="Searching..." ><span class ="glyphicon glyphicon-search"></span>Search</button>
+										</form><!--/form-->
+									</div><!--/col4-->
+								</div><!--/row-->
+							</div><!--/col12-->
+						</div><!--/row-->
+					</div><!--/search_form-->
+					<div class="row row-offcanvas row-offcanvas-right">
+						<div id = "article_content">
+							<div class="col-xs-12 col-sm-9">
+							  <p class="pull-right visible-xs">
+							    <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+							  </p>
+							  <div class="jumbotron">
+							  	<img src="images/despics.png" width = "600px" height ="200px">
+							  </div>
+						     	<div class = "panel panel-primary">
+						     		<div class = "panel-heading">
+						     			<div class = "row" id = "pages">
+						     				<!--/Pages Goes Here-->	
+						     			</div>
+						     		</div class = "panel-body">
+						     			<div  id = "details">
+						     				<!--/Search Results Goes Here-->
+						     			</div>
+						     		<div class = "row" id = "bot_pages">
+						     			<!--/Pages Goes Here-->	
+						     		</div>
+							    </div><!--/span-->
+							</div><!--/span-->
+						</div><!--/article-->
 
-					<article>
-						<div id = "article-content">
-							
-						</div>
-					</article>
+						<div id = "aside_content"><!--/aside-->
+							<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+								<div class="sidebar-nav">
+									<ul class="nav nav-tabs" id="myTab">
+									  <li class="active"><a class ="btn btn-info" href="#home" data-toggle="tab"><i class="glyphicon glyphicon-film"></i> In Theaters</a></li>
+									  <li><a class ="btn btn-warning" href="#profile" data-toggle="tab"><i class="glyphicon glyphicon-facetime-video"></i> On DVDs</a></li>
+									</ul>
+									<div class="tab-content">
+									  <div class="tab-pane active" id="home">
+									  	<ul class="nav" >
+									  		<div class = "list-group">
+									  			<li class = "list-group-item active">Box Office</li>
+									  			<div id = "box_office"></div>
+									  			<div class = "pull-right"><a href="#" class = "showboxOffice">See all</a></div>
+									  		</div>
+									  	  <div class = "list-group">
+									  	  	<li class = "list-group-item active">In Theaters</li>
+									  	  	<div id = "in_theater"></div>
+									  	  	<div class = "pull-right"><a href="#" class = "showtheaters">See all</a></div>
+									  	  </div>
+									  	  <div class = "list-group">
+									  			<li class = "list-group-item active">Opening</li>
+									  			<div id = "opening"></div>
+									  			<div class = "pull-right"><a href="#" class = "showopenings">See all</a></div>
+									  		</div>
+									  	  <div class = "list-group">
+									  			<li class = "list-group-item active">Upcoming</li>
+									  			<div id = "upcoming"></div>
+									  			<div class = "pull-right"><a href="#" class = "showupcoming">See all</a></div>
+									  		</div>
+									  </div><!--/.tab pane active -->
+									  <div class="tab-pane" id="profile">
+									  	<ul class="nav">
+									  	  <div class = "list-group">
+									  			<li class = "list-group-item active">Top Rentals</li>
+									  			<div id = "top_rental"></div>
+									  			<div class = "pull-right"><a href="#" class = "showtoprentals">See all</a></div>
+									  		</div>
+									  	  <div class = "list-group">
+									  			<li class = "list-group-item active">Currently Released</li>
+									  			<div id = "current_release"></div>
+									  			<div class = "pull-right"><a href="#" class = "showcurrentreleases">See all</a></div>
+									  		</div>
+									  	  <div class = "list-group">
+									  			<li class = "list-group-item active">New Release</li>
+									  			<div id = "new_release"></div>
+									  			<div class = "pull-right"><a href="#" class = "shownewreleases">See all</a></div>
+									  		</div>
+									  	  <div class = "list-group">
+									  			<li class = "list-group-item active">Upcoming</li>
+									  			<div id = "dupcoming"></div>
+									  			<div class = "pull-right"><a href="#" class = "showdupcoming">See all</a></div>
+									  		</div>
+									  	</ul>
+									  </div><!--/.tab pane1 -->
+									</div><!--/.tab content -->
+								</div><!--/.main_well -->
+							</div><!--/span-->
+						</div><!--/aside-->
+					</div><!--/row-->
+				</div><!--/aricle-aside-->
 
-					<aside>
-						<div class = "content">
-							aside
-						</div>
-					</aside>
-				</div>
-			</body>
 				<footer>
-					<div class = "content">
-						footer
+					<div class = "footer">
+						<span> &copy;<a href="http://goo.gl/IAq7Y9" target = "blank">Despicable Us    </a>
+						|</span><p class = "pull-right"><a href="#">Back to Top</a></p>
+						Made possible by: <a href="http://www.github.com" target = "blank">GitHub   </a>|<a href="http://www.rottentomatoes.com" target = "blank">  Rotten Tomatoes  </a>|<a href="http://www.getbootstrap.com" target = "blank">  Twitter Bootstrap</a>
 					</div>
 				</footer>
+			</div><!--/container-->
+		</div><!--/main-->
 
-	<script id = "entry template" type="text/x-handlebars-template">
-		<div class="entry">
-		  <h1>{{title}}</h1>
-		  <div class="body">
-		    {{body}}
-		  </div>	
-		</div>
-	</script>
-	<script type="text/javascript" src = "js/handlebars.js"></script>
-	<script type="text/javascript" src = "js/jquery.js"></script>
-	<script type="text/javascript" src = "bootstrap/bootstrap.js"></script>	
-	</center>	
+		<div id = "container_modal"></div>
+
+		<script id = "show_tab" type="text/x-handlebars-template">
+				<a class = "list-group-item" href="{{links.alternate}}" target = "_blank">
+				{{ratings.audience_score}}% {{title}} {{release_dates.theater}}</a>
+		</script>
+
+		<script id = "show_search_results" type="text/x-handlebars-template">
+	    	<div id = "movie" class="col-4 col-sm-6 col-lg-4 col-xs-12">
+	      		<h4>{{title}}</h4>
+     			<span>{{year}}</span></br>
+      			<img src="{{posters.thumbnail}}" class="img-thumbnail"></br>
+      			<span span class="badge">Audience Score:</span> <span class="label label-success">{{ratings.audience_score}} </span></br>
+      			<span span class="badge">Critics Score:</span> <span class="label label-success">{{ratings.critics_score}}</span></br>
+     	 		<button class="btn" href="#">View details &raquo;
+     	 		<div>
+     	 			<span class = "none" >{{title}}</span>
+     	 			<span class = "none" >{{year}}</span>
+     	 			<span class = "none">{{posters.original}}</span>
+     	 			<span class = "none" >{{synopsis}}</span>
+     	 			<span class = "none" >{{ratings.audience_score}}</span>
+     	 			<span class = "none" >{{ratings.critics_score}}</span>
+     	 			<span class = "none" >{{runtime}}</span>
+     	 			<span class = "none" >{{links.alternate}}</span>
+     	 		</div>
+     	 		</button>
+     	 	</div>
+
+		</script>
+
+		<script id = "show_buttons" type="text/x-handlebars-template">
+		<h3 class = "panel-title">Search Results</h3>
+			<div class = "panel-heading">
+				<span class="label label-info">{{total}} movie results </span>
+	    		<div class = "pull-right">
+	    			<div class = "btn-group">
+	    				<div class = "previous_page"><button class="btn btn-success"><i class="glyphicon glyphicon-backward"></i> Previous</button></div>
+	    				<div class = "next_page"><button class="btn btn-success" ><i class="glyphicon glyphicon-forward"></i> Next</button><div>
+	    			</div>
+	    		</div>
+	    	</div>
+				
+		</script>
+
+		<script id = "show_modal" type="text/x-handlebars-template">
+		<div id="modal">
+			<div id="heading">
+				{{title}}({{year}})
+			</div>
+			<div id="content">
+				<span span class="badge">Audience Score:</span> <span class="label label-success">{{audience}}</span>&nbsp; 
+				 <span span class="badge">Critics Score:</span> <span class="label label-success">{{critics}}</span></br>
+				<span span class="badge">Synopsis</span><p align = "justify">{{synopsis}}</p>
+				<a href="{{link}}" class="btn btn-warning" target= "_blank">See RT Movie Info!</a>
+				<img src="{{image}}" align= "left" border = 10px>
+			</div>
+		</div>				
+		</script>
+
+		<script id = "show" type="text/x-handlebars-template">
+			<div class = "well">
+				<h5>{{title}} ({{year}})</h5></br>
+				<a href="{{links.alternate}}" class="btn btn-warning" target= "_blank">See RT Movie Info!</a>
+				<span span class="badge">Audience Score:</span> <span class="label label-success">{{ratings.audience_score}}</span>&nbsp; 
+				 <span span class="badge">Critics Score:</span> <span class="label label-success">{{ratings.critics_score}}</span></br>
+				<img src="{{posters.original}}" align= "left" border = 10px class = "img-thumbnail">
+				<span span class="badge">Synopsis</span><p align = "justify">{{synopsis}}</p></br>
+			</div>				
+		</script>
+	
+
+		<script type="text/javascript" src = "js/jquery.js"></script>
+		<script type="text/javascript" src = "js/handlebars.js"></script>
+		<script type="text/javascript" src="js/handlefunction.js"></script>
+		<script type="text/javascript" src = "bootstrap/bootstrap.js"></script>
+		<script type="text/javascript" src = "js/jquery 1.7.1.js"></script>
+		<script type="text/javascript" src = "js/jquery.reveal.js"></script>
+	</body>
 </html>

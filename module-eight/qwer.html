@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Despicable Movies</title>
+  <meta charset="utf-8">
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <link rel="shortcut icon" type="image/icon" href="images/jf.icon">
+  <link rel="stylesheet" type="text/css" href="css/handlestyle.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/offcanvas.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap/glyphicons.css">
+  <link rel="stylesheet" type="text/css" href="css/grid.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap-theme.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  
+</head> 
+  <body>  
+    <a href="#" id="button">Click me</a>
+
+
+    <div id="modal">
+      <div id="heading">
+        Are you sure you want to do that?
+      </div>
+
+      <div id="content">
+        <p>Clicking yes will make Comic Sans your new system<br> default font. Seriously, have you thought this through?</p>
+
+        <a href="#" class="button green close"><img src="images/tick.png">Yes, do it now!</a>
+
+        <a href="#" class="button red close"><img src="images/cross.png">No, I’m insane!</a>
+      </div>
+    </div>
+
+
+
+      <!--jQuery-->
+
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $('#button').click(function(e) { // Button which will activate our modal
+              $('#modal').reveal({ // The item which will be opened with reveal
+                animation: 'fade',                   // fade, fadeAndPop, none
+              animationspeed: 600,                       // how fast animtions are
+              closeonbackgroundclick: true,              // if you click background will modal close?
+              dismissmodalclass: 'close'    // the class of a button or element that will close an open modal
+            });
+          return false;
+          });
+        });
+      </script>
+
+
+    <script src="js/jquery.reveal.js"></script>
+    <script type="text/javascript" src = "js/jquery.js"></script>
+    <script type="text/javascript" src = "js/handlebars.js"></script>
+    <script type="text/javascript" src="js/handlefunction.js"></script>
+    <script type="text/javascript" src = "bootstrap/bootstrap.js"></script> 
+    <script type="text/javascript" src = "bootstrap/js/button.js"></script>
+  </body>
+</html>
