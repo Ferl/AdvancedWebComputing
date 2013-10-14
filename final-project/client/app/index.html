@@ -26,24 +26,24 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="javascript:void(0)">Thesis Management System</a>
+                    <a class="navbar-brand" href="javascript:void(0)"> <i class = "glyphicon glyphicon-home"></i> Thesis Management System</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav menu-crud">
-                        <li class='menu-create item'><a href="javascript:void(0)">Create New</a></li>
-                        <li class='menu-list item'><a href="javascript:void(0)">Show All</a></li>
+                        <li class='menu-create item'><a href="javascript:void(0)"><i class = "glyphicon glyphicon-plus-sign"></i> Create New</a></li>
+                        <li class='menu-list item'><a href="javascript:void(0)"><i class = "glyphicon glyphicon-list"></i> Show All</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class='menu-loading'><a href="#">Loading...</a></li>
-                        <li class="menu-user dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class='user-email'></span> <b class="caret"></b></a>
+                        <li class="menu-user dropdown"> 
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class = "glyphicon glyphicon-user"></i><i> </i><span class='user-email'></span> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#" class='btn-logout'>Logout</a></li>
-                                <li ><a href="#">About</a></li>
+                                <li><a href="#" class='btn-logout'><i class = "glyphicon glyphicon-eject"></i> Logout</a></li>
+                                <li ><a href="#"> <i class = "glyphicon glyphicon-info-sign"></i> About</a></li>
                             </ul>
                         </li>
                     </ul>
-                    <a href='#' class="btn btn-primary btn-login navbar-btn navbar-right">Log in</a>
+                    <a href='#' class="btn btn-primary btn-login navbar-btn navbar-right"></i> Log in</a>
                     </div>
                 </div>
             </div>
@@ -111,11 +111,11 @@
                     </div>
                     <div class="form-group">
                         <label for="tite-input">Title</label>
-                        <input id='title-input' type="text" class="form-control" name='Title' placeholder="Enter title.." value='{{Title}}'>
+                        <input id='title-input' type="text" class="form-control" name='Title' placeholder="Thesis Title" value='{{Title}}'>
                     </div>
                     <div class="form-group">
                         <label for="subtite-input">Subtitle</label>
-                        <input id='subtitle-input' type="text" class="form-control" name='Subtitle' placeholder="Enter subtitle.." value='{{Subtitle}}'>
+                        <input id='subtitle-input' type="text" class="form-control" name='Subtitle' placeholder="Enter subtitle" value='{{Subtitle}}'>
                     </div>
                     <div class="form-group">
                         <label for="description-input">Description</label>
@@ -133,11 +133,10 @@
             <div class="col-lg-8">
                 <h1>{{Year}} : {{Title}}</h1>
                 <p class="lead">{{Subtitle }}</p>
-                <div class="fb-like" data-href="https://pupcoetm.appspot.com/thesis-{{Id}}" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="false"></div>
                 <hr>
                 <p>{{Description }}</p>
                 <hr>
-                <div class="fb-comments" data-href="http://despicable-thesis-manager.appspot.com/{{Id}}" data-colorscheme="ligth" data-numposts="5" data-width="470"></div>
+                <div class="fb-comments" data-href="http://despicable-thesis-manager.appspot.com/" data-colorscheme="ligth" data-numposts="5" data-width="470"></div>
             </div>
         </script>
 
