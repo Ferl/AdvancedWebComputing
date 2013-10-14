@@ -27,12 +27,22 @@ $(function() {
                 $el.addClass("active");
 
                 if ($el.hasClass('menu-list')) {
-                    self.showList();
+                    self.router.navigate('list', {trigger: true});
                 }
 
                 if ($el.hasClass('menu-create')) {
-                    self.showForm();
+                    self.router.navigate('new', {trigger: true});
                  }
+            });
+            $('.navbar-brand').click(function() {
+                self.router.navigate('', {trigger: true});
+            });
+            $('.form-search').submit(function() {
+                self.showList();
+                self.search($('.search-input').val(), function(list) {
+                    self.displayLoadedList(list);
+                });
+                return false;
             });
         },
         getUser: function() {
@@ -122,6 +132,50 @@ $(function() {
         return markup;
 
     }
+    var Router = Backbone.Router.extend({
+        routes: {
+            '': 'onHome',
+            'thesis-:id': 'onView',
+            'new': 'onCreate',
+            'edit-:id': 'onEdit',
+            'search-:query': 'onSearch',
+            'list': 'onList'
+        },
+
+       onHome: function() {
+            app.showHome();
+       },
+
+       onView: function(id) {
+           console.log('thesis id', id);
+            app.getThesisByID(id, function(item) {
+                app.showThesis(item);
+                FB.XFBML.parse();
+            });
+       },
+
+       onCreate: function() {
+            app.showForm();
+       },
+
+       onEdit: function(id) {
+            app.getThesisByID(id, function(item) {
+                app.showForm(item);
+            });
+       },
+       onSearch: function(query) {
+            app.showList();
+            app.search(query, function(list) {
+                app.displayLoadedList(list);
+            });
+       },
+
+       onList: function() {
+            app.showList();
+            app.loadAllThesis();
+       }
+
+    });
 
     app.init();
 
