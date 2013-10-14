@@ -89,6 +89,7 @@ $(function() {
 
         },
         showForm: function(object) {
+            var self = this;
             if (!object) {
                 object = {};
             }
@@ -138,7 +139,7 @@ $(function() {
         },
         save: function(object) {
             var self = this;
-            $.post('api/thesis', object, function(res) {
+            $.post('/api/thesis', object, function(res) {
                 self.router.navigate('list', {trigger: true});
             });
             return false;
