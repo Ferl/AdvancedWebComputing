@@ -159,6 +159,7 @@ $(function() {
             '': 'onHome',
             'thesis-:id': 'onView',
             'new': 'onCreate',
+            'edit-:id': 'onEdit',
             'list': 'onList'
         },
 
@@ -178,6 +179,11 @@ $(function() {
             app.showForm();
        },
 
+       onEdit: function(id) {
+            app.getThesisByID(id, function(item) {
+                app.showForm(item);
+            });
+       },
 
        onList: function() {
             app.showList();
