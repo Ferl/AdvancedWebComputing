@@ -32,7 +32,7 @@ $(function() {
 
                 if ($el.hasClass('menu-create')) {
                     self.showForm();
-                }
+                 }
             });
         },
         getUser: function() {
