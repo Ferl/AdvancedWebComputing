@@ -32,18 +32,13 @@ $(function() {
 
                 if ($el.hasClass('menu-create')) {
                     self.router.navigate('new', {trigger: true});
-                 }
+                }
             });
+
             $('.navbar-brand').click(function() {
                 self.router.navigate('', {trigger: true});
             });
-            $('.form-search').submit(function() {
-                self.showList();
-                self.search($('.search-input').val(), function(list) {
-                    self.displayLoadedList(list);
-                });
-                return false;
-            });
+
         },
         getUser: function() {
             var self = this;
@@ -81,17 +76,19 @@ $(function() {
         showList: function() {
             var $listTemplate = getTemplate('tpl-thesis-list');
             $('.app-content').html($listTemplate);
-            this.loadAllThesis();
+        },
+        getThesisByID: function(id, callback) {
+            var object = {};
+            $.get('/api/thesis/' + id, function(item) {
+                callback(item);
+            });
         },
         showForm: function(object) {
             if (!object) {
                 object = {};
             }
-            var self = this;
             var $formTemplate = getTemplate('tpl-thesis-form', object);
             $('.app-content').html($formTemplate);
-
-
             $('form').unbind('submit').submit(function(ev) {
                 var thesisObject = {};
                 var inputs = $('form').serializeArray();
@@ -104,21 +101,38 @@ $(function() {
 
         },
         loadAllThesis: function() {
-            $.get('/api/thesis', this.displayLoadedList);
+            var self = this;
+            setTimeout(function() {
+                $.get('/api/thesis', function(res) {
+                    self.displayLoadedList(res);
+                });
+            }, 200);
         },
         displayLoadedList: function(list) {
-            console.log(list);
-            //  use tpl-thesis-list-item to render each loaded list and attach it
-            $('.thesis-list').append(getTemplate('tpl-thesis-list-item',list));
+            var self = this;
+            
+            _.each(list, function(item) {
+                var $thesisItem = $(getTemplate('tpl-thesis-list-item', item));
+                var id = item.Id
+                if (item.Key) {
+                    id = item.Key;
+                }
+                $thesisItem.find('.edit-thesis').click(function() {
+                });
+                $thesisItem.find('.view-thesis').click(function() {
+                });
+                $('.thesis-list').append($thesisItem);
+
+            });
 
 
         },
         save: function(object) {
             var self = this;
-            $.post ('/api/thesis', object, function(){
-                self.showList();
+            $.post('api/thesis', object, function(res) {
+                self.router.navigate('list', {trigger: true});
             });
-
+            return false;
         }
 
 
@@ -135,10 +149,7 @@ $(function() {
     var Router = Backbone.Router.extend({
         routes: {
             '': 'onHome',
-            'thesis-:id': 'onView',
             'new': 'onCreate',
-            'edit-:id': 'onEdit',
-            'search-:query': 'onSearch',
             'list': 'onList'
         },
 
@@ -146,29 +157,10 @@ $(function() {
             app.showHome();
        },
 
-       onView: function(id) {
-           console.log('thesis id', id);
-            app.getThesisByID(id, function(item) {
-                app.showThesis(item);
-                FB.XFBML.parse();
-            });
-       },
-
        onCreate: function() {
             app.showForm();
        },
 
-       onEdit: function(id) {
-            app.getThesisByID(id, function(item) {
-                app.showForm(item);
-            });
-       },
-       onSearch: function(query) {
-            app.showList();
-            app.search(query, function(list) {
-                app.displayLoadedList(list);
-            });
-       },
 
        onList: function() {
             app.showList();
