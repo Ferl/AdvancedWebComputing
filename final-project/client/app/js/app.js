@@ -83,6 +83,12 @@ $(function() {
                 callback(item);
             });
         },
+        showThesis: function(thesis) {
+            var self = this;
+            var $viewTemplate = getTemplate('tpl-thesis-detail', thesis);
+            $('.app-content').html($viewTemplate);
+
+        },
         showForm: function(object) {
             if (!object) {
                 object = {};
@@ -118,8 +124,10 @@ $(function() {
                     id = item.Key;
                 }
                 $thesisItem.find('.edit-thesis').click(function() {
+                    self.router.navigate('edit-' + id, {trigger: true});
                 });
                 $thesisItem.find('.view-thesis').click(function() {
+                    self.router.navigate('thesis-' + id, {trigger: true});
                 });
                 $('.thesis-list').append($thesisItem);
 
@@ -149,12 +157,21 @@ $(function() {
     var Router = Backbone.Router.extend({
         routes: {
             '': 'onHome',
+            'thesis-:id': 'onView',
             'new': 'onCreate',
             'list': 'onList'
         },
 
        onHome: function() {
             app.showHome();
+       },
+
+       onView: function(id) {
+           console.log('thesis id', id);
+            app.getThesisByID(id, function(item) {
+                app.showThesis(item);
+                FB.XFBML.parse();
+            });
        },
 
        onCreate: function() {
