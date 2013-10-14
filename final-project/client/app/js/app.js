@@ -12,8 +12,11 @@ $(function() {
             $('.btn-login').attr('href', '/api/login?url=/');
             $('.btn-logout').attr('href','/api/logout?url=/');
 
+            this.router = new Router();
             this.setEventListeners();
             this.getUser();
+
+            Backbone.history.start({pushState: true});
         },
         setEventListeners: function() {
             var self = this;
@@ -61,6 +64,9 @@ $(function() {
            $('.menu-loading').addClass('hidden');
            $('.btn-login').addClass('hidden');
            $('.menu-user').removeClass('hidden');
+        },
+        showHome: function() {
+            $('.app-content').html('');
         },
         showList: function() {
             var $listTemplate = getTemplate('tpl-thesis-list');
