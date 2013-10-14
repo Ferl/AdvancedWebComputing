@@ -32,9 +32,8 @@ $(function() {
 
                 if ($el.hasClass('menu-create')) {
                     self.router.navigate('new', {trigger: true});
-                }
+                 }
             });
-
             $('.navbar-brand').click(function() {
                 self.router.navigate('', {trigger: true});
             });
@@ -95,6 +94,8 @@ $(function() {
             }
             var $formTemplate = getTemplate('tpl-thesis-form', object);
             $('.app-content').html($formTemplate);
+
+
             $('form').unbind('submit').submit(function(ev) {
                 var thesisObject = {};
                 var inputs = $('form').serializeArray();
