@@ -33,8 +33,11 @@ $(function() {
                 if ($el.hasClass('menu-create')) {
                     self.router.navigate('new', {trigger: true});
                  }
+                 if ($el.hasClass('home')) {
+                     self.router.navigate('', {trigger: true});
+                 }
             });
-            $('.navbar-brand').click(function() {
+            $('.home item').click(function() {
                 self.router.navigate('', {trigger: true});
             });
 
@@ -132,6 +135,9 @@ $(function() {
                     self.router.navigate('thesis-' + id, {trigger: true});
                 });
                 $('.thesis-list').append($thesisItem);
+
+                $('.menu-crud .item:eq(1)').removeClass('active');
+                $('.menu-crud .item:eq(2)').addClass('active');
 
             });
 
