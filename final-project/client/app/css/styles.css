@@ -6,14 +6,6 @@ body {
     display: none;
 }
 
-.navbar {
-	background-color: #fa3616;
-}
-
-a{
-	color: black;
-}
-
 footer{
 	background-color: #fa3616;
 	border-top: 1px solid rgba(0,0,0,0.3);
@@ -25,3 +17,12 @@ footer{
 	width:100%;
 	-webkit-transition: background 1s;
 }
+
+.navbar {
+	background-color: #fa3616;
+}
+
+a{
+	color: black;
+}
+
