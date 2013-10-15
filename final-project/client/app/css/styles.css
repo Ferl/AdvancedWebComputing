@@ -5,3 +5,23 @@ body {
 .hidden {
     display: none;
 }
+
+.navbar {
+	background-color: #fa3616;
+}
+
+a{
+	color: black;
+}
+
+footer{
+	background-color: #fa3616;
+	border-top: 1px solid rgba(0,0,0,0.3);
+	bottom: 0px;
+	position:fixed;
+	left: 0px;
+	padding: 10px;
+	text-align: center;
+	width:100%;
+	-webkit-transition: background 1s;
+}
