@@ -3,6 +3,7 @@ $(function() {
     var app = {
         init: function() {
             this.user = {};
+            $('.home-content').addClass('hidden');
             $('.menu-crud').addClass('hidden');
             $('.menu-user').addClass('hidden');
             $('.menu-loading').removeClass('hidden');
@@ -34,7 +35,7 @@ $(function() {
                     self.router.navigate('new', {trigger: true});
                  }
                  if ($el.hasClass('home')) {
-                     self.router.navigate('', {trigger: true});
+                     self.router.navigate('user', {trigger: true});
                  }
             });
             $('.home item').click(function() {
@@ -51,12 +52,12 @@ $(function() {
                     // user is already signed in
                     console.log(me);
                     self.user = me;
-                    self.showLogout();
+                    self.router.navigate('user', {trigger: true});
                 },
 
                 error: function(err) {
                     console.log('you have not authenticated');
-                    self.showLogin();
+                    self.router.navigate('login', {trigger: true});
                 }
             });
         },
@@ -64,6 +65,7 @@ $(function() {
            $('.menu-loading').addClass('hidden');
            $('.menu-user').addClass('hidden');
            $('.btn-login').removeClass('hidden');
+           $('.home-sign-in').removeClass('hidden');
         },
         showLogout: function() {
            $('.menu-crud').removeClass('hidden');
@@ -71,12 +73,16 @@ $(function() {
            $('.menu-loading').addClass('hidden');
            $('.btn-login').addClass('hidden');
            $('.menu-user').removeClass('hidden');
+           $('.home-sign-in').addClass('hidden');
+           $('.home-content').removeClass('hidden');
+           $('.app-content').html('');
         },
         showHome: function() {
             $('.app-content').html('');
         },
         showList: function() {
             var $listTemplate = getTemplate('tpl-thesis-list');
+            $('.home-content').addClass('hidden');
             $('.app-content').html($listTemplate);
         },
         getThesisByID: function(id, callback) {
@@ -88,6 +94,7 @@ $(function() {
         showThesis: function(thesis) {
             var self = this;
             var $viewTemplate = getTemplate('tpl-thesis-detail', thesis);
+            $('.home-content').addClass('hidden');
             $('.app-content').html($viewTemplate);
 
         },
@@ -97,6 +104,7 @@ $(function() {
                 object = {};
             }
             var $formTemplate = getTemplate('tpl-thesis-form', object);
+            $('.home-content').addClass('hidden');
             $('.app-content').html($formTemplate);
 
 
@@ -168,11 +176,21 @@ $(function() {
             'thesis-:id': 'onView',
             'new': 'onCreate',
             'edit-:id': 'onEdit',
-            'list': 'onList'
+            'list': 'onList',
+            'user': 'onLogout',
+            'login': 'onLogin'
         },
 
        onHome: function() {
             app.showHome();
+       },
+
+       onLogout: function() {
+            app.showLogout();
+       },
+
+       onLogin: function() {
+            app.showLogin();
        },
 
        onView: function(id) {
