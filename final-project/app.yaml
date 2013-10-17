@@ -1,5 +1,5 @@
-application: despicables-thesis-manager
-version: 1
+application: despicable-thesis-manager
+version: 2
 runtime: python27
 api_version: 1
 threadsafe: true

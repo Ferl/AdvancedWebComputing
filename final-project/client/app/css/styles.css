@@ -9,7 +9,7 @@ body {
 }
 
 footer{
-	background-color: #fa3616;
+	background-color: black;
 	border-top: 1px solid rgba(0,0,0,0.3);
 	bottom: 0px;
 	position:fixed;
@@ -17,15 +17,12 @@ footer{
 	padding: 10px;
 	text-align: center;
 	width:100%;
+	color: white;
 	-webkit-transition: background 1s;
 }
 
 .navbar {
 	background-color: #fa3616;
-}
-
-a{
-	color: black;
 }
 
 .coe{
@@ -37,7 +34,27 @@ a{
   text-align: center;
   background-color: transparent;
 }
+
 .wcslide {
 	width: 1120px;
 	height: 300px;
+}
+
+.options {
+	text-align: justify;
+	font-family: mekanin let;
+	font-size: 15px;
+	font-weight: bolder;
+}
+
+.home-content {
+	background-color: orange;
+}
+
+.font{
+	font-family: comic sans ms;
+}
+
+.option {
+	font-family: sans-serif;
 }

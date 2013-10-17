@@ -12,8 +12,9 @@ $(function() {
             $('.btn-logout').attr('href','/api/logout?url=/');
 
             this.router = new Router();
-            this.setEventListeners();
             this.getUser();
+            this.setEventListeners();
+
 
             Backbone.history.start({pushState: true});
         },
@@ -71,12 +72,12 @@ $(function() {
         showLogin: function() {
            $('.menu-loading').addClass('hidden');
            $('.menu-user').addClass('hidden');
-           $('.btn-login').removeClass('hidden');
            $('.search').addClass('hidden');
+           $('.btn-login').removeClass('hidden');
            $('.home-sign-in').removeClass('hidden'); 
+           $('.home-content').addClass('hidden');
         },
-        showLogout: function() {
-           $('.home-content').removeClass('hidden'); 
+        showLogout: function() { 
            $('.search').removeClass('hidden');
            $('.menu-crud').removeClass('hidden');
            $('.user-email').text(this.user.email);
@@ -85,6 +86,7 @@ $(function() {
            $('.menu-user').removeClass('hidden');
         },
         showHome: function() {
+            $('.home-content').removeClass('hidden');
             $('.app-content').html('');
         },
         showList: function() {
@@ -121,6 +123,10 @@ $(function() {
                 self.save(thesisObject);
                 return false;
             });
+            $('.cancel').click(function() {
+                self.router.navigate('list', {trigger: true});
+            });
+            $('.home-content').addClass('hidden');
             self.setEventListeners();
         },
         loadAllThesis: function() {
@@ -179,6 +185,7 @@ $(function() {
             });
         },
         searchThesis: function(keyword){
+            $('.home-content').addClass('hidden');
             var self = this;
             var regex = new RegExp(".*(" + keyword + ").*", "i");
             $.get('/api/thesis', function(obj){
@@ -186,7 +193,7 @@ $(function() {
                     return regex.test(thesis.Title);
                });
                if(sorted_list.length == 0){
-                    alert('No thesis found');
+                    alert('Thesis not in database');
                     event.preventDefault();
                }
                else{
