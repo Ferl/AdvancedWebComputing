@@ -181,15 +181,15 @@ $(function() {
 
         $('.none').css('display','none');
     }
-    request('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json', {apiKey:apiKey, limit:'5'}, showBoxOffice);
-    request('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json', {apiKey:apiKey, page:'1', page_limit:'8'}, showInTheater);
-    request('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/opening.json', {apiKey:apiKey, limit:'4'}, showOpening);
-    request('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/upcoming.json', {apiKey:apiKey, limit:'4'}, showUpcoming);
+    request('https://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json', {apiKey:apiKey, limit:'5'}, showBoxOffice);
+    request('https://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json', {apiKey:apiKey, page:'1', page_limit:'8'}, showInTheater);
+    request('https://api.rottentomatoes.com/api/public/v1.0/lists/movies/opening.json', {apiKey:apiKey, limit:'4'}, showOpening);
+    request('https://api.rottentomatoes.com/api/public/v1.0/lists/movies/upcoming.json', {apiKey:apiKey, limit:'4'}, showUpcoming);
 
-    request('http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json', {apiKey:apiKey, limit:'5'}, showTopRental);
-    request('http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/current_releases.json', {apiKey:apiKey, page:'1', page_limit:'8'}, showCurrentRelease);
-    request('http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/new_releases.json', {apiKey:apiKey, page:'1', page_limit:'8'}, showNewRelease);
-    request('http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/upcoming.json', {apiKey:apiKey, page:'1', page_limit:'8'}, showDupcoming);
+    request('https://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json', {apiKey:apiKey, limit:'5'}, showTopRental);
+    request('https://api.rottentomatoes.com/api/public/v1.0/lists/dvds/current_releases.json', {apiKey:apiKey, page:'1', page_limit:'8'}, showCurrentRelease);
+    request('https://api.rottentomatoes.com/api/public/v1.0/lists/dvds/new_releases.json', {apiKey:apiKey, page:'1', page_limit:'8'}, showNewRelease);
+    request('https://api.rottentomatoes.com/api/public/v1.0/lists/dvds/upcoming.json', {apiKey:apiKey, page:'1', page_limit:'8'}, showDupcoming);
 
     $('#search_movie_button').click(
         function(){
@@ -214,42 +214,42 @@ $(function() {
 
     $('.showboxOffice').click(
     function(){
-        request('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json', {apiKey:apiKey}, showSearchResults);
+        request('https://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json', {apiKey:apiKey}, showSearchResults);
     });
     $('.showtheaters').click(
     function(){
-        request('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json', {apiKey:apiKey}, showSearchResults);
+        request('https://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json', {apiKey:apiKey}, showSearchResults);
     });
     $('.showopenings').click(
     function(){
-        request('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/opening.json', {apiKey:apiKey}, showSearchResults);
+        request('https://api.rottentomatoes.com/api/public/v1.0/lists/movies/opening.json', {apiKey:apiKey}, showSearchResults);
     });
     $('.showupcoming').click(
     function(){
-        request('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/upcoming.json', {apiKey:apiKey}, showSearchResults);
+        request('https://api.rottentomatoes.com/api/public/v1.0/lists/movies/upcoming.json', {apiKey:apiKey}, showSearchResults);
     });
 
     $('.showtoprentals').click(
     function(){
-        request('http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json', {apiKey:apiKey}, showSearchResults);
+        request('https://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json', {apiKey:apiKey}, showSearchResults);
     });
     $('.showcurrentreleases').click(
     function(){
-        request('http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/current_releases.json', {apiKey:apiKey}, showSearchResults);
+        request('https://api.rottentomatoes.com/api/public/v1.0/lists/dvds/current_releases.json', {apiKey:apiKey}, showSearchResults);
     });
     $('.showonewreleases').click(
     function(){
-        request('http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/new_releases.json', {apiKey:apiKey}, showSearchResults);
+        request('https://api.rottentomatoes.com/api/public/v1.0/lists/dvds/new_releases.json', {apiKey:apiKey}, showSearchResults);
     });
     $('.showdupcoming').click(
     function(){
-        request('http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/upcoming.json', {apiKey:apiKey}, showSearchResults);
+        request('https://api.rottentomatoes.com/api/public/v1.0/lists/dvds/upcoming.json', {apiKey:apiKey}, showSearchResults);
     });
 
 
 
     function search(){
-        request('http://api.rottentomatoes.com/api/public/v1.0/movies.json',
+        request('https://api.rottentomatoes.com/api/public/v1.0/movies.json',
                 {   q:$('#search_movie_field').val(),
                     apiKey:apiKey
                 },
